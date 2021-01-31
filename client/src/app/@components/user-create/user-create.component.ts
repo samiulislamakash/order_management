@@ -17,9 +17,9 @@ export class UserCreateComponent {
     private fb: FormBuilder,
   ) {
     this.userForm = this.fb.group({
-      name: [, [Validators.required]],
-      phoneNumber: [, [Validators.required]],
-      address: [, [Validators.required]]
+      name: ['', [Validators.required]],
+      phoneNumber: ['', [Validators.required]],
+      address: ['', [Validators.required]]
     })
     this.dialogRef.backdropClick().subscribe(() => this.dialogRef.close({ success: false }));
 
@@ -29,5 +29,8 @@ export class UserCreateComponent {
     this.dialogRef.close({ success: false });
   }
 
+  save() {
+    this.dialogRef.close({ success: true, data: this.userForm.value })
+  }
 
 }

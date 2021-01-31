@@ -32,7 +32,7 @@ import { MatIconModule } from '@angular/material/icon';
     MatSelectModule,
     MatCheckboxModule,
     MatDialogModule,
-    MatIconModule
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
