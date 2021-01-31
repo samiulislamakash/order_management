@@ -8,52 +8,59 @@
 
     <section class="order_details_full container">
         <div class="row">
-            <div class="col-sm-6">
-                <div class="user_section">
-                    <div class="user">
-                        <mat-form-field class="customar_dropdown" appearance="outline">
-                            <mat-label>Customar</mat-label>
+            <div class="col-sm-9">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="user_section">
+                            <div class="user">
+                                <mat-form-field class="customar_dropdown" appearance="outline">
+                                    <mat-label>Customar</mat-label>
+                                    <mat-select>
+                                        <mat-option value="a">
+                                            Ayesha
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                            <button mat-raised-button (click)="createUser()">Add User</button>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Payment Method</mat-label>
                             <mat-select>
-                                <mat-option value="a">
-                                    Ayesha
+                                <mat-option value="BKASH">
+                                    BKASH
+                                </mat-option>
+                                <mat-option>
+                                    ROKET
                                 </mat-option>
                             </mat-select>
                         </mat-form-field>
                     </div>
-                    <button mat-raised-button (click)="createUser()">Add User</button>
                 </div>
+                <table class="table table-borderless">
+                    <thead>
+                        <tr>
+                            <th scope="col">Item Name</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-            <div class="col-sm-6">
-                <mat-form-field appearance="outline">
-                    <mat-label>Payment Method</mat-label>
-                    <mat-select>
-                        <mat-option value="BKASH">
-                            BKASH
-                        </mat-option>
-                        <mat-option>
-                            ROKET
-                        </mat-option>
-                    </mat-select>
-                </mat-form-field>
+            <div class="col-sm-3 all_order">
+                hello
             </div>
         </div>
-        <table class="table table-borderless">
-            <thead>
-                <tr>
-                    <th scope="col">Item Name</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Quantity</th>
-                    <th scope="col">Total</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                </tr>
-            </tbody>
-        </table>
     </section>
 </section>
