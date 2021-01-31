@@ -1,3 +1,4 @@
+import { ProductAddComponent } from './@components/product-add/product-add.component';
 import { UserCreateComponent } from './@components/user-create/user-create.component';
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
@@ -17,6 +18,15 @@ export class AppComponent {
   createUser() {
     const dialogRef = this.dialog.open(UserCreateComponent, {
       width: '550px',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+    });
+  }
+
+  addProduct() {
+    const dialogRef = this.dialog.open(ProductAddComponent, {
+      width: '750px',
     });
 
     dialogRef.afterClosed().subscribe(result => {

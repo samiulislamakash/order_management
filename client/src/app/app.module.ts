@@ -13,12 +13,14 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { UserCreateComponent } from './@components/user-create/user-create.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
+import { ProductAddComponent } from './@components/product-add/product-add.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserCreateComponent
+    UserCreateComponent,
+    ProductAddComponent
   ],
   imports: [
     BrowserModule,
