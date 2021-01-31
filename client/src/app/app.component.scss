@@ -1,0 +1,42 @@
+.full_wrap{
+    min-height: 100vh;
+}
+
+mat-form-field{
+    width:100%;
+}
+
+:host ::ng-deep .mat-form-field-infix{
+    padding: 8px 5px;
+}
+
+.header{
+    display:flex;
+    justify-content: center;
+    padding:10px 0px;
+    h1{
+        margin-left:8px;
+    }
+    span{
+        margin-top:3px;
+    }
+}
+
+.order_details_full{
+    .customar_dropdown{
+        width:100%;
+    }
+}
+
+.user_section{
+    display:flex;
+    button{
+        height: 38px;
+        margin-top: 3px;
+        margin-left: 2%;
+        width: 16%;
+    }
+    .user{
+        width:82%;
+    }
+}
