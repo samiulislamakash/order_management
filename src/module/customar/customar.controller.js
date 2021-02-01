@@ -10,12 +10,12 @@ CustomarRoutes.post('/create', async (req, res) => {
     try {
         const customar = new Customar({
             name: req.body.name,
-            phonNumber: req.body.phonNumber,
+            phoneNumber: req.body.phoneNumber,
             address: req.body.address
         })
 
         await customar.save().then((d) => {
-            res.status(201).send({ success: true, data: d });
+            res.status(201).send({ success: true, data: d, message: 'Customar create successfull.' });
         }).catch((e) => {
             res.status(400).send({ success: false, message: 'Bad Request' })
         })
@@ -33,7 +33,7 @@ CustomarRoutes.get('/all', async (req, res) => {
         if (!customar) {
             return res.status(404).send({ success: false, message: "Data not found" })
         }
-        res.status(200).send({ success: false, data: customar })
+        res.status(200).send({ success: true, data: customar, message: "All Customar get successfull." })
     } catch (e) {
         res.status(500).send({ success: false, message: 'Internal Server Error' })
     }
@@ -51,7 +51,7 @@ CustomarRoutes.get('/:id', async (req, res) => {
             return res.status(404).send({ success: false, message: "Data not found" })
         }
 
-        res.status(200).send({ success: true, data: customar })
+        res.status(200).send({ success: true, data: customar, message: 'Single user get successfull.' })
     } catch (e) {
         res.status(500).send({ success: false, message: 'Internal Server Error' })
     }
@@ -65,8 +65,8 @@ CustomarRoutes.patch("/update/:id", async (req, res) => {
             _id: req.params.id
         }, {
             $set: req.body
-        }).then(() => {
-            res.status(200).send({ success: true, message: "Data Update successfull" })
+        }, { new: true }).then((c) => {
+            res.status(200).send({ success: true, data: c, message: "Data Update successfull" })
         }).catch(() => {
             res.status(400).send({ success: false, message: 'Bad Request' })
         })

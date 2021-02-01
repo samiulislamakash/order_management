@@ -5,8 +5,8 @@ const CustomarSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    phonNumber: {
-        type: Number,
+    phoneNumber: {
+        type: String,
         require: true
     },
     address: {
