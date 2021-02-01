@@ -1,1 +1,34 @@
-<p>product-add works!</p>
+<section class="header">
+    <h2>Order Products</h2>
+    <button mat-icon-button (click)="onNoClick()">
+        <mat-icon>close</mat-icon>
+    </button>
+</section>
+<form [formGroup]="form">
+    <label class="padding-down padding-up" for="food_item">Product Item</label>
+    <mat-select class="form-control" formControlName="name" (change)="updateData($event.target)">
+        <mat-option value="Banana">Banana</mat-option>
+    </mat-select>
+    <div class="row _form_dbl">
+        <div class="col-6 pl-0">
+            <label class="padding-down padding-up" for="price">Price</label>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">৳</div>
+                </div>
+                <input readonly class="form-control" type="text" formControlName="price">
+            </div>
+        </div>
+        <div class="col-6 pr-0">
+            <label class="padding-down padding-up" for="quantity">Quantity</label>
+            <div class="input-group">
+                <input class="form-control" type="number" formControlName="quantity" (keyup)="updateTotal()">
+            </div>
+        </div>
+    </div>
+    <label class="padding-down padding-up" for="total">Total</label>
+    <div class="input-group">
+        <input readonly class="form-control" type="number" formControlName="total">
+    </div>
+    <button class="_product_add_btn" mat-raised-button type="submit" (click)="save()">Submit</button>
+</form>

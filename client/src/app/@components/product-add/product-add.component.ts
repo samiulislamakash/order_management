@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
@@ -15,7 +15,10 @@ export class ProductAddComponent implements OnInit {
     private fb: FormBuilder,
   ) {
     this.form = this.fb.group({
-
+      name: [, [Validators.required]],
+      price: [, [Validators.required]],
+      quantity: [, [Validators.required]],
+      total: [, [Validators.required]]
     })
 
     this.dialogRef.backdropClick().subscribe(() => this.dialogRef.close({ success: false }));
@@ -26,6 +29,18 @@ export class ProductAddComponent implements OnInit {
 
   onNoClick(): void {
     this.dialogRef.close({ success: false });
+  }
+
+  save() {
+    this.dialogRef.close({ success: true, data: this.form.value });
+  }
+
+  updateTotal() {
+
+  }
+
+  updateData() {
+
   }
 
 }
