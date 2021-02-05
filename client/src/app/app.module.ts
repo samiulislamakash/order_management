@@ -14,13 +14,15 @@ import { UserCreateComponent } from './@components/user-create/user-create.compo
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { ProductAddComponent } from './@components/product-add/product-add.component';
+import { InvoiceViewComponent } from './@components/invoice-view/invoice-view.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     UserCreateComponent,
-    ProductAddComponent
+    ProductAddComponent,
+    InvoiceViewComponent
   ],
   imports: [
     BrowserModule,

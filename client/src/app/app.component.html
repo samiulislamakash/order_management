@@ -8,7 +8,7 @@
 
     <section class="order_details_full container">
         <div class="row">
-            <div class="col-sm-9">
+            <div class="col-sm-8">
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="user_section">
@@ -39,8 +39,9 @@
                         </mat-form-field>
                     </div>
                 </div>
+                <h4><b>Product List : </b></h4>
                 <table class="table">
-                    <thead>
+                    <thead class="add_item_header">
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Name</th>
@@ -78,9 +79,33 @@
                         </tr>
                     </tbody>
                 </table>
+                <div class="mony_calculation">
+                    <p class="sub_total"><b>Sub Total :</b> ৳ 0</p>
+                    <p class="vat"><b>Vat :</b> ৳ 0</p>
+                    <p class="total"><b>Total :</b> ৳ 0</p>
+
+                    <button class="order_btn" mat-raised-button (click)="orderCreated()">Order Placed</button>
+                </div>
+
             </div>
-            <div class="col-sm-3 all_order">
-                hello
+            <div class="col-sm-4 all_order">
+                <h4><b>Total Order :</b></h4>
+                <table class="table table-striped">
+                    <thead class="order_header">
+                        <tr>
+                            <th scope="col">Order Id</th>
+                            <th scope="col">Customar Name</th>
+                            <th scope="col">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="cursor_pointer" (click)="showOrderDetails()">
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </section>

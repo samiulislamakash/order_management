@@ -39,8 +39,8 @@ export class ProductAddComponent implements OnInit {
 
   }
 
-  updateData() {
-
+  updateData(e: any) {
+    console.log(e);
   }
 
 }
