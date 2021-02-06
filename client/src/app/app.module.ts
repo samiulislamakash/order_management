@@ -15,6 +15,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { ProductAddComponent } from './@components/product-add/product-add.component';
 import { InvoiceViewComponent } from './@components/invoice-view/invoice-view.component';
+import { HttpClientModule } from '@angular/common/http';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 @NgModule({
@@ -37,6 +39,8 @@ import { InvoiceViewComponent } from './@components/invoice-view/invoice-view.co
     MatCheckboxModule,
     MatDialogModule,
     MatIconModule,
+    HttpClientModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

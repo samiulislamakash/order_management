@@ -1,3 +1,5 @@
+import { NotificationService } from './@shared/service/notification.service';
+import { CustomarService } from './@shared/service/customar.service';
 import { InvoiceViewComponent } from './@components/invoice-view/invoice-view.component';
 import { ProductAddComponent } from './@components/product-add/product-add.component';
 import { UserCreateComponent } from './@components/user-create/user-create.component';
@@ -12,10 +14,29 @@ import Swal from 'sweetalert2';
 })
 export class AppComponent {
   title = 'Order Management';
+  allcustomar: any[] = [];
 
   constructor(
-    public dialog: MatDialog
-  ) { }
+    public dialog: MatDialog,
+    private customarService: CustomarService,
+    private notificationService: NotificationService
+  ) {
+    this.getAllCustomar();
+  }
+
+  getAllCustomar() {
+    this.customarService.filter().subscribe(
+      (res: any) => {
+        if (res.success) {
+          this.allcustomar = res.data;
+        } else {
+          this.notificationService.showPopupDanger("User Getting error!!!")
+        }
+      }, err => {
+        this.notificationService.showPopupDanger(err.message)
+      }
+    )
+  }
 
   createUser() {
     const dialogRef = this.dialog.open(UserCreateComponent, {
@@ -23,6 +44,19 @@ export class AppComponent {
     });
 
     dialogRef.afterClosed().subscribe(result => {
+      if (result.success) {
+        this.customarService.create(result.data).subscribe(
+          (res: any) => {
+            if (res.success) {
+              this.allcustomar.unshift(res.data)
+            } else {
+              this.notificationService.showPopupDanger(res.message)
+            }
+          }, err => {
+            this.notificationService.showPopupDanger(err.message)
+          }
+        )
+      }
     });
   }
 

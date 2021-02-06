@@ -16,8 +16,8 @@
                                 <mat-form-field class="customar_dropdown" appearance="outline">
                                     <mat-label>Customar</mat-label>
                                     <mat-select>
-                                        <mat-option value="a">
-                                            Ayesha
+                                        <mat-option *ngFor="let cus of allcustomar" [value]="cus._id">
+                                            {{cus.name}}
                                         </mat-option>
                                     </mat-select>
                                 </mat-form-field>
