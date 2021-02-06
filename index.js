@@ -13,7 +13,7 @@ app.use(cors())
 app.use(express.json())
 app.use('/api/v1/customar', require('./src/module/customar/customar.controller'))
 app.use('/api/v1/product', require('./src/module/product-item/productItem.controller'))
-
+app.use('/api/v1/order', require('./src/module/order/order.controller'))
 /** end middleware */
 
 // demo url
