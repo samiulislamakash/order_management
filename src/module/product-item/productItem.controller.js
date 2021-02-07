@@ -32,7 +32,7 @@ ProductItemRoutes.get('/all', async (req, res) => {
         if (!product) {
             return res.status(404).send({ success: false, message: "Data not found" })
         }
-        res.status(200).send({ success: false, data: product, message: "Get all product successfull" })
+        res.status(200).send({ success: true, data: product, message: "Get all product successfull" })
     } catch (e) {
         res.status(500).send({ success: false, message: 'Internal Server Error' })
     }
