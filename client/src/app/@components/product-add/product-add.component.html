@@ -7,7 +7,7 @@
 <form [formGroup]="form">
     <label class="padding-down padding-up" for="food_item">Product Item</label>
     <mat-select class="form-control" formControlName="name" (ngModelChange)="updateData($event)">
-        <mat-option *ngFor="let product of allproduct; let i = index;" value="{{product.name}}">{{product.name}}
+        <mat-option *ngFor="let product of allproduct; let i = index;" value="{{i}}">{{product.name}}
         </mat-option>
     </mat-select>
     <div class="row _form_dbl">

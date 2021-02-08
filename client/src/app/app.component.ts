@@ -16,6 +16,8 @@ export class AppComponent {
   title = 'Order Management';
   allcustomar: any[] = [];
 
+  allProductList: any[] = [];
+
   constructor(
     public dialog: MatDialog,
     private customarService: CustomarService,
@@ -66,6 +68,9 @@ export class AppComponent {
     });
 
     dialogRef.afterClosed().subscribe(result => {
+      if (result.success) {
+        console.log(result.data)
+      }
     });
   }
 

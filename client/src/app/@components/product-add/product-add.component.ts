@@ -12,6 +12,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 export class ProductAddComponent implements OnInit {
   form: FormGroup;
   allproduct: any[] = [];
+  product: any;
   constructor(
     public dialogRef: MatDialogRef<ProductAddComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -20,9 +21,9 @@ export class ProductAddComponent implements OnInit {
     private notificationService: NotificationService
   ) {
     this.form = this.fb.group({
-      name: [, [Validators.required]],
+      name: ['', [Validators.required]],
       price: [, [Validators.required]],
-      quantity: [, [Validators.required]],
+      quantity: [0, [Validators.required]],
       total: [, [Validators.required]]
     })
 
@@ -52,15 +53,25 @@ export class ProductAddComponent implements OnInit {
   }
 
   save() {
-    this.dialogRef.close({ success: true, data: this.form.value });
+    const data = {
+      productId: this.product._id,
+      productName: this.product.name,
+      price: this.product.price,
+      quantity: this.form.get('quantity')?.value,
+      total: this.form.get('total')?.value
+    }
+    this.dialogRef.close({ success: true, data });
   }
 
   updateTotal() {
-
+    this.form.controls['total'].patchValue(this.product.price * this.form.get('quantity')?.value)
   }
 
   updateData(e: any) {
-    console.log(e)
+    this.product = this.allproduct[e]
+    this.form.controls['price'].patchValue(this.allproduct[e].price)
+    this.form.controls['quantity'].patchValue(1);
+    this.form.controls['total'].patchValue(this.allproduct[e].price * this.form.get('quantity')?.value)
   }
 
 }

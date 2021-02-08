@@ -47,10 +47,13 @@
                             <th scope="col">Name</th>
                             <th scope="col">Quantity</th>
                             <th scope="col">Price</th>
+                            <th scope="col">Total</th>
                             <th scope="col" class="last_column">
-                                Total
-                                <button class="add_button" mat-raised-button type='button' (click)="addProduct()">Add
-                                    Product</button>
+                                <button class="add_button" mat-raised-button type='button' (click)="addProduct()">
+                                    <mat-icon>add</mat-icon>
+                                    Add
+                                    Product
+                                </button>
                             </th>
 
                         </tr>
@@ -62,20 +65,7 @@
                             <td>Otto</td>
                             <td>@mdo</td>
                             <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
-                            <td>@mdo</td>
+                            <td></td>
                         </tr>
                     </tbody>
                 </table>
