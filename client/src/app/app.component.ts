@@ -69,7 +69,24 @@ export class AppComponent {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result.success) {
-        console.log(result.data)
+        if (result.success) {
+          this.allProductList.push(result.data)
+        }
+
+      }
+    });
+  }
+
+  updateProduct() {
+    const dialogRef = this.dialog.open(ProductAddComponent, {
+      width: '750px',
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result.success) {
+        if (result.success) {
+          this.allProductList.push(result.data)
+        }
+
       }
     });
   }

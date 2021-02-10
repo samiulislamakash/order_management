@@ -57,12 +57,10 @@ mat-form-field{
 }
 
 .last_column{
-    position:relative
+    position:relative;
+    width:145px;
 }
 .add_button{
-    position:absolute;
-    top:3px;
-    left:3px;
     background:#f3f3f3;
     padding: 0px 11px;
     font-size: 14px;
@@ -83,3 +81,7 @@ mat-form-field{
     background-color: #bdbcbc;
 }
 
+.noProduct{
+    text-align: center;
+    padding:10px 0px;
+}

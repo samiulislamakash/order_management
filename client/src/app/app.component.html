@@ -59,13 +59,22 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                            <td>@mdo</td>
-                            <td></td>
+                        <tr *ngIf="!allProductList.length">
+                            <th scope="row" colspan="6">
+                                <h3 class="noProduct">No Product Selected!!</h3>
+                            </th>
+                        </tr>
+                        <tr *ngFor="let product of allProductList; let i = index;">
+                            <th scope="row">{{i+1}}</th>
+                            <td>{{product.productName}}</td>
+                            <td>{{product.quantity}}</td>
+                            <td>{{product.price}}</td>
+                            <td>{{product.total}}</td>
+                            <td>
+                                <button mat-icon-button [matMenuTriggerFor]="menu">
+                                    <mat-icon>more_vert</mat-icon>
+                                </button>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -100,3 +109,12 @@
         </div>
     </section>
 </section>
+
+<mat-menu #menu="matMenu">
+    <button mat-menu-item>
+        <span>Remove</span>
+    </button>
+    <button mat-menu-item>
+        <span>Update</span>
+    </button>
+</mat-menu>
